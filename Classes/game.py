@@ -18,7 +18,7 @@ class Game:
                 help_instance = Help(self.availabe_turns)
                 help_instance.generate_table()
             elif player_turn == '0':
-                print('Goodbye')
+                print('Goodbye! Have a nice day')
                 self.game_Status = False
             
             for turn in self.availabe_turns:
