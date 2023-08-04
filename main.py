@@ -4,12 +4,17 @@ from Classes.hmac import Hmac
 from Classes.c_turn import Computer
 from Classes.game import Game
 from Classes.key import Key
+from Classes.chek_args import ChekArguments
  
 
 game_arguments = sys.argv
 game_arguments.pop(0)
 
-if len(game_arguments) >= 3 and len(game_arguments) % 2 != 0:
+arguments_instance = ChekArguments(game_arguments)
+validation = arguments_instance.is_valid_array()
+
+
+if validation:
     gameplay = True
     availabe_turns = []
     
@@ -41,7 +46,6 @@ if len(game_arguments) >= 3 and len(game_arguments) % 2 != 0:
         time.sleep(3)
         gameplay= game_origin.gameplay()
 
-elif len(game_arguments) < 3:
-    print("Invalid number of arguments, type in at least 3 arguments")
+
 
 
